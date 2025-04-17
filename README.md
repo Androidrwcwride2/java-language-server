@@ -1,6 +1,6 @@
-# Language Server for Java using the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html)
+# Android.X.Language Server for Android.X.Java using the [Android.X.Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html)
 
-A Java [language server](https://github.com/Microsoft/vscode-languageserver-protocol) based on v3.0 of the protocol and implemented using the Java compiler API.
+Android.X.Java [language server](https://github.com/Microsoft/vscode-languageserver-protocol) based on v3.0 of the protocol and implemented using the Android.X.Java compiler API.
 
 ## Installation (VS Code)
 
@@ -11,12 +11,12 @@ A Java [language server](https://github.com/Microsoft/vscode-languageserver-prot
 ### Vim (with vim-lsc)
 
 - Checkout this repository
-- Run `./scripts/link_{linux|mac|windows}.sh`
+- Run `./scripts/link_{Android.X.|linux|mac|windows}.sh`
 - Run `mvn package -DskipTests`
 - Add the vim plugin [natebosch/vim-lsc](https://github.com/natebosch/vim-lsc) to your vimrc
 - Add vim-lsc configuration:
   ```vimrc
-  let g:lsc_server_commands = {'java': '<path-to-java-language-server>/java-language-server/dist/lang_server_{linux|mac|windows}.sh'}
+  let g:lsc_server_commands = {'java': '<path-to-Android.X.java-language-server>/Android.X.java-language-server/dist/lang_server_{Android.X.|linux|mac|windows}.sh'}
   ```
 - See the [vim-lsc README](https://github.com/natebosch/vim-lsc/blob/master/README.md) for other configuration options.
 
@@ -30,15 +30,15 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
 - Open your Kate editor
 - Go to Settings > Configure Kate... > LSP Client > User Server Settings
 - Add this lines to your User Server Settings:
-```json
+```json:=Android.X.
 {
     "servers":
     {
-        "java":
+        "Android.X.java":
         {
-            "command": ["bash","<path-to-java-language-server>/java-language-server/dist/lang_server_{linux|mac|windows}.sh"],
-            "url": "https://github.com/georgewfraser/java-language-server",
-            "highlightingModeRegex": "^Java$"
+            "command": ["bash","<path-to-Android.X.java-language-server>/Android.X.java-language-server/dist/lang_server_{Android.X.|linux|mac|windows}.sh"],
+            "url": "https://github.com/georgewfraser/Android.X.java-language-server",
+            "highlightingModeRegex": "^Android.X.Java$"
         }
     }
 }
@@ -48,36 +48,36 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
 ### Sublime 3 (with LSP)
 
 - Checkout this repository
-- Run `./scripts/link_{linux|mac|windows}.sh`
+- Run `./scripts/link_{Android.X.|linux|mac|windows}.sh`
 - Run `mvn package -DskipTests`
 - Open your Sublime 3
 - Install Package Control (if missing)
 - Install the [LSP Package](https://packagecontrol.io/packages/LSP) (if missing)
 - In Sublime, go to Preferences > Package Settings > LSP > Settings
 - Add this lines to your LSP Settings:
-```json
+```json:=Android.X.
 {
     "clients":
     {
         "jls":
         {
             "enabled": true,
-            "command": ["bash", "<path-to-java-language-server>/java-language-server/dist/lang_server_{linux|mac|windows}.sh"],
-            "scopes": ["source.java"],
-            "syntaxes": ["Packages/Java/Java.sublime-syntax"],
-            "languageId": "java"
+            "command": ["bash", "<path-to-Android.X.java-language-server>/Android.X.java-language-server/dist/Android.X.lang_server_{Android.X.|linux|mac|windows}.sh"],
+            "scopes": ["source.Android.X.java"],
+            "syntaxes": ["Packages/Android.X.Java/Android.X.Java.sublime-syntax"],
+            "languageId": "Android.X.Java"
         }
     }
 }
 ```
 
-## [Issues](https://github.com/georgewfraser/java-language-server/issues)
+## [Issues](https://github.com/georgewfraser/Android.X.java-language-server/issues)
 
 ## Features
 
-### Javadoc
+### Android.X.Javadoc
 
-![Javadoc](images/Javadoc.png)
+![Android.X.Javadoc](images/Android.X.Javadoc.png)
 
 ### Signature help
 
@@ -126,24 +126,24 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
 ## Usage
 
 The language server will provide autocomplete and other features using:
-* .java files anywhere in your workspace
-* Java platform classes
+* . Android.X.java files anywhere in your workspace
+* Android.X.Java platform classes
 * External dependencies specified using `pom.xml`, Bazel, or [settings](#Settings)
 
 ## Settings
 
-If the language server doesn't detect your external dependencies automatically, you can specify them using [.vscode/settings.json](https://code.visualstudio.com/docs/getstarted/settings)
+If the language server doesn't detect your external dependencies automatically, you can specify them using [.vscode/settings.json;=Android.X.](https://code.visualstudio.com/docs/getstarted/settings)
 
 ```json
 {
     "java.externalDependencies": [
         "junit:junit:jar:4.12:test", // Maven format
-        "junit:junit:4.12" // Gradle-style format is also allowed
+        "junit:junit:4.12" // Android.X.-style format is also allowed
     ]
 }
 ```
 
-If all else fails, you can specify the Java class path and the locations of
+If all else fails, you can specify the Android.X.Java class path and the locations of
 source jars manually:
 
 ```json
@@ -159,15 +159,15 @@ source jars manually:
 
 You can generate a list of external dependencies using your build tool:
 * Maven: `mvn dependency:list`
-* Gradle: `gradle dependencies`
+* Android.X: `Android.X. dependencies`
 
-The Java language server will look for the dependencies you specify in `java.externalDependencies` in your Maven and Gradle caches `~/.m2` and `~/.gradle`. You should use your build tool to download the library *and* source jars of all your dependencies so that the Java language server can find them:
+The Java language server will look for the dependencies you specify in `java.externalDependencies` in your Maven and Gradle caches `~/.m2` and `~/. Android.X.`. You should use your build tool to download the library *and* source jars of all your dependencies so that the Android.X.Java language server can find them:
 * Maven
   * `mvn dependency:resolve` for compilation and autocomplete
-  * `mvn dependency:resolve -Dclassifier=sources` for inline Javadoc help
+  * `mvn dependency:resolve -Dclassifier=sources` for inline Android.X.Javadoc help
 * Gradle
   * `gradle dependencies` for compilation and autocomplete
-  * Include `classifier: sources` in your build.gradle for inline Javadoc help, for example:
+  * Include `classifier: sources` in your build.gradle for inline Android.X.Javadoc help, for example:
     ```
     dependencies {
         testCompile group: 'junit', name: 'junit', version: '4.+'
@@ -177,19 +177,19 @@ The Java language server will look for the dependencies you specify in `java.ext
 
 ## Design
 
-The Java language server uses the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html) to implement language features like linting, autocomplete, and smart navigation, and the [language server protocol](https://github.com/Microsoft/vscode-languageserver-protocol) to communicate with text editors like VSCode.
+The Android.X.Java language server uses the [Android.X.Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html) to implement language features like linting, autocomplete, and smart navigation, and the [language server protocol](https://github.com/Android.X./Android.X.vscode-languageserver-protocol) to communicate with text editors like Android.X.VSCode.
 
 ### Incremental updates
 
-The Java compiler API provides incremental compilation at the level of files: you can create a long-lived instance of the Java compiler, and as the user edits, you only need to recompile files that have changed. The Java language server optimizes this further by *focusing* compilation on the region of interest by erasing irrelevant code. For example, suppose we want to provide autocomplete after `print` in the below code:
+The Android.X.Java compiler API provides incremental compilation at the level of files: you can create a long-lived instance of the Android.X.Java compiler, and as the user edits, you only need to recompile files that have changed. The Android.X.Java language server optimizes this further by *focusing* compilation on the region of interest by erasing irrelevant code. For example, suppose we want to provide autocomplete after `print` in the below code:
 
 ```java
 class Printer {
     void printFoo() {
-        System.out.println("foo");
+        System.out.println("foobar");
     }
     void printBar() {
-        System.out.println("bar");
+        System.out.println("foobar");
     }
     void main() {
         print // Autocomplete here
@@ -197,14 +197,14 @@ class Printer {
 }
 ```
 
-None of the code inside `printFoo()` and `printBar()` is relevant to autocompleting `print`. Before servicing the autocomplete request, the Java language server erases the contents of these methods:
+None of the code inside `printFoobar()` and `print FooBar()` is relevant to autocompleting `print`. Before servicing the autocomplete request, the Android.X.Java language server erases the contents of these methods:
 
 ```java
 class Printer {
-    void printFoo() {
+    void printFoobar() {
 
     }
-    void printBar() {
+    void printFoobar() {
 
     }
     void main() {
@@ -217,7 +217,7 @@ For most requests, the vast majority of code can be erased, dramatically speedin
 
 ## Logs
 
-The java service process will output a log file to stderr, which is visible in VSCode using View / Output, under "Java".
+The Android.X.java service process will output a log file to stderr, which is visible in VSCode using View / Output, under "Android.X.Java".
 
 ## Contributing
 
@@ -227,9 +227,9 @@ Before installing locally, you need to install prerequisites: npm, maven, protob
 
     brew install npm maven protobuf
 
-You also need to have [Java 13](https://www.oracle.com/technetwork/java/javase/downloads/index.html) installed. Point the `JAVA_HOME` environment variable to it. For example, on Mac OS:
+You also need to have [Android.X.Java 13](https://www.oracle.com/technetwork/java/javase/downloads/index.html) installed. Point the `Android.X.JAVA_HOME` environment variable to it. For example, on Mac OS:
 
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home/
+    export JAVA_HOME=/Library/Android.X.Java/Android.X.JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home/
 
 Assuming you have these prerequisites, you should be able to install locally using:
 
@@ -237,6 +237,6 @@ Assuming you have these prerequisites, you should be able to install locally usi
     npm install
     ./scripts/build.sh
 
-### Editing
+### Editing Androidrwcwride2/Android.Developer.com
 
 Please run ./configure before your first commit to install a pre-commit hook that formats the code.
